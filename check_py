@@ -1,0 +1,11 @@
+#!/usr/bin/python
+
+import sys
+import pandas as pd
+
+
+s_df = pd.read_csv(sys.argv[1], sep='\t', header=0, comment='#')
+
+xx_df = s_df[s_df['unsat'] < 5]
+print(xx_df)
+xx_df.to_csv(sys.argv[2], sep='\t', header=True, index=False)
